@@ -22,9 +22,9 @@ var
 	// Concat core files and widget files
 	uiFiles = coreFiles.map(function( file ) {
 		return "ui/" + file;
-	}).concat( widgets );
+	}).concat( widgets ),
 
-	var allI18nFiles = expandFiles( "ui/i18n/*.js" ),
+	allI18nFiles = expandFiles( "ui/i18n/*.js" ),
 
 	cssFiles = [
 		"core",
@@ -168,7 +168,7 @@ grunt.initConfig({
 				include: expandFiles( [
 					"ui/**/*.js",
 					"!ui/widgets/*.js",
-					...coreFiles,
+					...uiFiles,
 					...widgets,
 					"!ui/core.js",
 					"!ui/i18n/*"
