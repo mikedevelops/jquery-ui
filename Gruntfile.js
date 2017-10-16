@@ -16,13 +16,15 @@ var
 		"effect.js"
 	],
 
+	// Non-core files to be included in the bundle
+	widgets = [],
+
+	// Concat core files and widget files
 	uiFiles = coreFiles.map(function( file ) {
 		return "ui/" + file;
-	}).concat( expandFiles( "ui/**/*.js" ).filter(function( file ) {
-		return coreFiles.indexOf( file.substring( 3 ) ) === -1;
-	}) ),
+	}).concat( widgets );
 
-	allI18nFiles = expandFiles( "ui/i18n/*.js" ),
+	var allI18nFiles = expandFiles( "ui/i18n/*.js" ),
 
 	cssFiles = [
 		"core",
