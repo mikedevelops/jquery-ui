@@ -165,7 +165,14 @@ grunt.initConfig({
 				findNestedDependencies: true,
 				skipModuleInsertion: true,
 				exclude: [ "jquery" ],
-				include: expandFiles( [ "ui/**/*.js", "!ui/core.js", "!ui/i18n/*" ] ),
+				include: expandFiles( [
+					"ui/**/*.js",
+					"!ui/widgets/*.js",
+					...coreFiles,
+					...widgets,
+					"!ui/core.js",
+					"!ui/i18n/*"
+				] ),
 				out: "dist/jquery-ui.js",
 				wrap: {
 					start: createBanner( uiFiles ),
